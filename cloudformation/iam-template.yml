@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: IAM Roles, Users, Groups, and Policies for Identity Management System
+
+Resources:
+  AdminGroup:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: Admins
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+
+  ReadOnlyGroup:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: ReadOnly
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+
+  DeveloperGroup:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: Developers
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/PowerUserAccess
+
+  # Additional IAM Users, Roles, and Policies can be defined here
